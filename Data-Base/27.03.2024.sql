@@ -1,10 +1,13 @@
-SELECT FIRST_NAME,salary,nvl(salary,0),(salary*12)+(salary*12*nvl(commission_pct,0))an_sal
-from employees;
+select * from jobs
+where min_salary>10000;
 
-SELECT FIRST_NAME,salary,commission_pct,
-nvl2(commission_pct,salary*commission_pct,salary+2000)income
-from employees;
+select first_name,hire_date
+from employees
+where JOB_ID ='IT_PROG' OR JOB_ID ='SA_MAN' ;
 
-SELECT FIRST_NAME,last_name,salary,commission_pct,
-nullif(length (FIRST_NAME),length(last_name))result
-from employees;
+SELECT * FROM employees
+WHERE EMPLOYEE_ID=150 OR EMPLOYEE_ID=160;
+
+SELECT DISTINCT(JOB_TITLE),min_salary,max_salary
+FROM JOBS
+WHERE max_salary BETWEEN 10000 AND 20000;

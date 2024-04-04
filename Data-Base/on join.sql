@@ -1,20 +1,19 @@
-select e.first_name,e.last_name,e.salary
-from employees e
-join departments d
+--question no 1
 
-on e.department_id=d.department_id
-JOIN locations l
-on d.location_id=l.location_id
-where lower(city) ='oxford';
+select FIRST_NAME,LAST_NAME,SALARY
+from employees
+WHERE FIRST_NAME like 'A%';
 
-select job_title,department_name,last_name,start_date
-from employees e
-join departments d
-on e.department_id=d.department_id
-join jobs j
-on e.job_id=j.job_id
-join job_history h
-on e.employee_id =h.employee_id 
-where to_char(h.START_DATE,'yyyy') between 2000 and 2005
-order by 2;
+--question no 2
+select FIRST_NAME,SALARY,(SALARY/100)*30+SALARY "Bonus_salary"
+from employees;
 
+--question no 3
+select FIRST_NAME||' '||LAST_NAME "Employees_name",SALARY
+from employees
+WHERE SALARY>2500;
+
+--question no 4
+select FIRST_NAME||' '||LAST_NAME"Employees_name",SALARY,SALARY*12 "Annual_salary"
+from employees
+ORDER BY SALARY*12;
