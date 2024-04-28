@@ -1,0 +1,26 @@
+--question no 1
+create table towhid1281524(eid NUMBER(4)CONSTRAINT sys_towhid1281524_eid PRIMARY key,
+ename VARCHAR2(20),salary number(8,2),hire_date date,address VARCHAR2(100));
+
+--question no 2
+select department_id,avg(salary)
+from employees
+group by department_id 
+having max(salary)>12000;
+
+--question no 3
+select last_name
+from employees
+where last_name like 'S%';
+
+--question no 4
+select avg(salary)
+from employees 
+natural join sales_reps;
+
+--question no 5
+
+select last_name,hire_date
+from employees
+order by hire_date;
+

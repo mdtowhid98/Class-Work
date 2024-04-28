@@ -1,0 +1,42 @@
+--question no 1
+create table ccdf(eid number(4)constraint sys_1281524_eid primary key,
+ename varchar2(20) not null,
+salary number(8,2)not null,
+hire_date date);
+
+--question no 2
+alter TABLE ccdf
+add(department_id number(5),department_name VARCHAR2(15));
+
+--question no 3
+insert into ccdf(eid,ename,salary,hire_date,department_id,department_name)
+VALUES(101,'Towhid',500000,'28-APR-2024',201,'CCSL');
+
+
+--question no 4
+
+create view asdf
+as
+select ename,department_name,salary
+from ccdf
+where department_id=80;
+
+--question no 5
+create SEQUENCE ccdf_eid
+INCREMENT by 1
+START with 100
+maxvalue 999999
+nocache
+nocycle;
+
+--question no 6
+
+insert into ccdf(eid, ename, salary, department_id, department_name)
+select e.employee_id, e.first_name, e.salary, d.department_id, d.department_name
+from employees e
+join departments d on d.department_id = e.department_id
+where d.department_id = 80;
+
+
+SELECT
+    * FROM ccdf;
